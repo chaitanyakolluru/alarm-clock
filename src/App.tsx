@@ -30,7 +30,9 @@ const App = () => {
           <button className="btn btn-primary" onClick={handleOnSubmit}>
             Set
           </button>
-          <p>{(timeForAlarm && 'ALARM TIME!!!') || ''}</p>
+          <p>
+            {(timeForAlarm && <img src="public/alarm.png" alt="Alarm" />) || ''}
+          </p>
         </div>
       </div>
     </div>
