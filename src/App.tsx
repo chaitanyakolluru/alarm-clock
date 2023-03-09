@@ -4,12 +4,20 @@ import { timeChecker } from './backend/timeChecker';
 const App = () => {
   const [alarmTime, setAlarmTime] = useState('');
   const [timeForAlarm, setTimeForAlarm] = useState(false);
+  const [alarmSet, setAlarmSet] = useState(false);
 
-  const handleOnSubmit = async (e: FormEvent<HTMLButtonElement>) => {
+  const handleOnSet = async (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setAlarmSet(true);
     while (!(await timeChecker(alarmTime))) {}
 
     setTimeForAlarm(true);
+  };
+
+  const handleOnClear = async (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setTimeForAlarm(false);
+    setAlarmSet(false);
   };
 
   return (
@@ -27,11 +35,22 @@ const App = () => {
             }}
             value={alarmTime}
           />
-          <button className="btn btn-primary" onClick={handleOnSubmit}>
+          <button className="btn btn-info" onClick={handleOnSet}>
             Set
           </button>
+
+          {alarmSet && (timeForAlarm || <p>Alarm set!</p>)}
+
           <p>
-            {(timeForAlarm && <img src="public/alarm.png" alt="Alarm" />) || ''}
+            {(timeForAlarm && (
+              <>
+                <img src="/alarm.png" alt="Alarm" />
+                <button className="btn btn-success" onClick={handleOnClear}>
+                  Clear
+                </button>
+              </>
+            )) ||
+              ''}
           </p>
         </div>
       </div>
