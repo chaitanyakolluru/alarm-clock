@@ -21,7 +21,7 @@ const App = () => {
   };
 
   return (
-    <div className="card w-screen bg-base-100 shadow-xl" data-theme="cupcake">
+    <div className="card w-96 bg-base-100 shadow-xl" data-theme="cupcake">
       <div className="card-body">
         <h2 className="card-title justify-center">Alarm Clock!</h2>
         <div className="card-actions justify-evenly">
