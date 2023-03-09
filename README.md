@@ -6,6 +6,16 @@ A simple clock where it displays clock at a particular time.
 
 Input time(24H) and click Set and the app displays an image with the clock when it hits inputted time.
 
+### Enter alarm time
+
+![alt text](./example1.png)
+
+## Alarm set
+
+![alt text](./example2.png)
+
+### Alarm displayed upon time
+
 ![alt text](./example%20result.png)
 
 ## Usage
