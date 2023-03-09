@@ -6,6 +6,5 @@ export const timeChecker = async (alarmTime: string): Promise<boolean> => {
     await delay(60000);
   }
 
-  console.log('this is timer calc', await timerCalc(alarmTime));
   return true;
 };
