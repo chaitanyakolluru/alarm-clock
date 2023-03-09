@@ -7,13 +7,13 @@ describe('time calculator', () => {
   });
 
   it('should say true when the time is current time', async () => {
-    jest.spyOn(timeDiff, 'timeDiff').mockReturnValue(12345);
+    jest.spyOn(timeDiff, 'timeDiff').mockReturnValue(Promise.resolve(12345));
 
     expect(await timerCalc('18:13')).toBeTruthy();
   });
 
   it('should say false when the time is NOT current time', async () => {
-    jest.spyOn(timeDiff, 'timeDiff').mockReturnValue(123456);
+    jest.spyOn(timeDiff, 'timeDiff').mockReturnValue(Promise.resolve(123456));
 
     expect(await timerCalc('18:13')).toBeFalsy();
   });
