@@ -21,38 +21,35 @@ const App = () => {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-screen bg-base-100 shadow-xl" data-theme="cupcake">
       <div className="card-body">
-        <h2 className="card-title">Alarm Clock!</h2>
-        <h4>Set alarm time</h4>
-        <div className="card-actions justify-end">
+        <h2 className="card-title justify-center">Alarm Clock!</h2>
+        <div className="card-actions justify-evenly">
           <input
             type="text"
-            placeholder="Type here"
-            className="input w-full max-w-xs"
+            placeholder="Enter alarm time in HH:MM"
+            className="input input-bordered input-ghost input-lg w-full max-w-xs"
             onChange={(e) => {
               setAlarmTime(e.target.value);
             }}
             value={alarmTime}
           />
-          <button className="btn btn-info" onClick={handleOnSet}>
+          <button className="btn btn-info justify-end" onClick={handleOnSet}>
             Set
           </button>
-
-          {alarmSet && (timeForAlarm || <p>Alarm set!</p>)}
-
-          <p>
-            {(timeForAlarm && (
-              <>
-                <img src="/alarm.png" alt="Alarm" />
-                <button className="btn btn-success" onClick={handleOnClear}>
-                  Clear
-                </button>
-              </>
-            )) ||
-              ''}
-          </p>
         </div>
+
+        {alarmSet && (timeForAlarm || <p>Alarm set!</p>)}
+
+        {(timeForAlarm && (
+          <>
+            <img src="/alarm.png" alt="Alarm" />
+            <button className="btn btn-success" onClick={handleOnClear}>
+              Clear
+            </button>
+          </>
+        )) ||
+          ''}
       </div>
     </div>
   );
