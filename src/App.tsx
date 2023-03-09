@@ -8,6 +8,8 @@ const App = () => {
   const handleOnSubmit = async (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     while (!(await timeChecker(alarmTime))) {}
+
+    console.log('this is time checker', await timeChecker(alarmTime));
     setTimeForAlarm(true);
   };
 
