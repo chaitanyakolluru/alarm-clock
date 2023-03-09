@@ -9,14 +9,13 @@ const App = () => {
     e.preventDefault();
     while (!(await timeChecker(alarmTime))) {}
 
-    console.log('this is time checker', await timeChecker(alarmTime));
     setTimeForAlarm(true);
   };
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title">Alarm Clock!!</h2>
+        <h2 className="card-title">Alarm Clock!</h2>
         <h4>Set alarm time</h4>
         <div className="card-actions justify-end">
           <input
